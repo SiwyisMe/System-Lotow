@@ -14,8 +14,14 @@ public abstract class Flight implements Bookable {
         this.capacity = capacity;
         this.booked = 0;
     }
-    
-    public void setNumber(String number) {
+
+    public String getNumber() { return number; }
+    public String getDestination() { return destination; }
+    public LocalDateTime getDateTime() { return dateTime; }
+    public int getCapacity() { return capacity; }
+    public int getBooked() { return booked; }
+
+        public void setNumber(String number) {
         this.number = number;
     }
 
@@ -35,12 +41,6 @@ public abstract class Flight implements Bookable {
     protected void setBooked(int booked) {
     this.booked = booked;
     }
-
-    public String getNumber() { return number; }
-    public String getDestination() { return destination; }
-    public LocalDateTime getDateTime() { return dateTime; }
-    public int getCapacity() { return capacity; }
-    public int getBooked() { return booked; }
 
     public int seatsAvailable() {
         return capacity - booked;
