@@ -14,6 +14,27 @@ public abstract class Flight implements Bookable {
         this.capacity = capacity;
         this.booked = 0;
     }
+    
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+ 
+    protected void setBooked(int booked) {
+    this.booked = booked;
+    }
 
     public String getNumber() { return number; }
     public String getDestination() { return destination; }
