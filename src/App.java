@@ -7,16 +7,26 @@ public class App {
 
         Flight f1 = new DomesticFlight("DL123", "Krakow", LocalDateTime.parse("2025-10-10 14:30", fmt), 3);
         Flight f2 = new InternationalFlight("INT456", "London", LocalDateTime.parse("2025-11-01 09:00", fmt), 2, "Passport must be valid 6 months");
+        Flight f3 = new CharterFlight("CH789", "Zakopane", LocalDateTime.parse("2025-12-20 07:15", fmt), 1, "SunCharter Ltd.");
 
-        Flight[] flights = {f1, f2};
+        Flight[] flights = {f1, f2, f3};
 
         System.out.println("Initial flight status:");
         for (Flight f : flights) System.out.println(f);
 
         System.out.println("\nAttempting bookings...");
-        attemptBooking(f1);
-        attemptBooking(f1);
-        attemptBooking(f2);
+            attemptBooking(f1);
+            attemptBooking(f1);
+            attemptBooking(f1);
+            // this should fail (overbook)
+            attemptBooking(f1);
+
+            attemptBooking(f2);
+            attemptBooking(f2);
+            attemptBooking(f2); // should fail
+
+            attemptBooking(f3);
+            attemptBooking(f3); // should fail
 
         System.out.println("\nFinal flight status:");
         for (Flight f : flights) System.out.println(f);
