@@ -57,4 +57,11 @@ public class FlightManager {
         }
         return null;
     }
+    public int getTotalBookings() {
+        int total = 0;
+        for (Flight flight : flights) {
+            total += flight.getBooked();
+        }
+        return total;
+    }
 }
