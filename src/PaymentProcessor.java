@@ -37,6 +37,24 @@ public class PaymentProcessor {
         return basePrice;
     }
 
+    public boolean validatePaymentMethod(String paymentMethod) {
+        String method = paymentMethod.trim().toLowerCase();
+        switch (method) {
+            case "1":
+            case "credit card":
+            case "2":
+            case "bank transfer":
+            case "3":
+            case "paypal":
+            case "4":
+            case "cash":
+                return true;
+            default:
+                System.out.println("Invalid payment method! Please choose from the available options.");
+                return false;
+        }
+    }
+
     public void displayPaymentOptions(Flight flight) {
         double price = calculateFlightPrice(flight);
         System.out.printf("\n=== PAYMENT OPTIONS FOR FLIGHT %s ===\n", flight.getNumber());
